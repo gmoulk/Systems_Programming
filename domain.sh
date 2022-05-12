@@ -8,26 +8,26 @@ do
     apps=0
     for file in ${FILE_LIST}
         do 
-        echo FILE = {$file}
         if [[ $i -gt 0 ]]; then
-            while IFS= read -r line; do
-                mails=$(echo $line | tr " " "\n")
+            while line_readed= read line; do
+            #read line by line
+                domain=$(echo $line | tr " " "\n")
+                #tokenize with " " or "\n" character
                 itsthere=0
                 j=0
-                for addr in $mails
+                for name in $domain
                 do  
                     if [[ $j -eq 0 ]]; then
-                        echo "> $addr"
-                    if [[ "$addr" == *".$arguments."* ]]; then
+                    if [[ $domain == *"$arguments" ]]; then
                         itsthere=1
-                    elif [[ "$addr" == *"$arguments."* ]]; then
+                    elif [[ $domain == "$arguments"* ]]; then
                         itsthere=1
-                    elif [[ "$addr" == *".$arguments"* ]]; then
+                    elif [[ $domain == *"$arguments"* ]]; then
                         itsthere=1
                     fi
         fi
         if [ $j -eq 1 -a $itsthere -eq 1 ]; then
-            let apps=apps+$addr
+            let apps=apps+$name
         fi 
         let j=j+1
     done
@@ -35,5 +35,5 @@ do
 fi  
     let i=i+1
 done
-echo $apps
+echo Apearances are $apps
 done

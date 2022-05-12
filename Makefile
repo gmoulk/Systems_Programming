@@ -1,2 +1,5 @@
 compile:
-	g++ -o main main.cpp
+	g++ sniffer.cpp end.cpp worker.cpp -o sniffer
+
+run:
+	./sniffer -p ./
