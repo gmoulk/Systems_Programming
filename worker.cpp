@@ -3,9 +3,11 @@
 extern char name_of_directory[4096];
 
 void worker(int fd){
+    char name_of_file[4096];
+    read(fd,name_of_file,4096);
     char actual_name_of_file[4096];
-    read(fd,actual_name_of_file,4096);
-    printf("readed!%s\n",actual_name_of_file);
+    strcpy(actual_name_of_file,name_of_directory);
+    strcat(actual_name_of_file,name_of_file);
         map<string, insert_str> num_of_apears;
         char* line;
         int charsRead;
@@ -23,7 +25,7 @@ void worker(int fd){
         line[now] = 0;
         while(charsRead != 0){
             char* token = NULL;
-            token = strstr(line,"/");
+            token = strstr(line,"http://");
             if(token == NULL){
                 now = 0;
                 free(line);
@@ -41,7 +43,7 @@ void worker(int fd){
             line[now] = 0;
             continue;
         }
-        token = token + 2;
+        token = token + 7;
         char* tokentemp = strstr(token,"www.");
         if(tokentemp != NULL){
             token = tokentemp;
@@ -76,7 +78,7 @@ void worker(int fd){
     }
         close(fd);
         char file_name[4096] = "../";
-        strcat(file_name,actual_name_of_file);
+        strcat(file_name,name_of_file);
         strcat(file_name,".out");
         int newFd = open(file_name,O_WRONLY|O_CREAT);
         for (auto itr = num_of_apears.begin(); itr != num_of_apears.end(); ++itr) {
