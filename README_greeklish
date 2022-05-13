@@ -1,0 +1,25 @@
+Moulkiwtis Grigorios
+1115201900117
+
+Sxediastikes epiloges einai gnwsto pws to megisto filename sta linux einai 4096 xaraktires to opoio kai xrisimopoiithike.
+Xrisimopoiithikan oi domes tis stl map kai queue.
+Yparxei Makefile gia tin metaglwttisi kai ektelesi tou programmatos.
+Kathe worker mporei na epeksergazetai diaforetika arxeia ean einai diathesimos.
+Parexontai sxolia se kathe arxeio.
+Gia kapoion logo i inotify den epistrefei ola ta arxeia otan eisagwntai ola mazi.
+I stl dimiourgei leaks.
+Ta .out arxeia vriskontai ena epipedo panw apo to ektelesimo.
+To valgring dyskoleyetai na vgalei apotelesmata otan trexoume ta arxeia twn test alla genika to programma den exei leaks.
+
+Metaglwttisi:
+make compile
+Ektelesi: 
+./sniffer [-p path]
+
+Epeksigisi kwdika:
+main:
+Elegxos orismatwn kai dimiougia pipe.THesimo tou Ctrl-C se termatismo,proetimasia twn orismatwn tis inotifywait.Fork gia tin dimiourgia tou listener kai fork-exec gia tin dimiourgia tis inotify.O Manager analamvanei ton elegxo.Molis lavoume arxeio dimiougia worker ean den yparxei diathesimos alliws ksypnima idi yparxonta kai parsing tou arxeiou.
+end:
+Skotwma diergasiwn kai apeleftherwsi mnimis.
+worker:
+Parsing kai apothikefsi dedomenwn sta arxeia,epipleon stamatima tou worker.
