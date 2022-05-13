@@ -49,10 +49,10 @@ void worker(int fd){
             token = tokentemp;
             token = token + 4;
         }
-        tokentemp = strtok(token,"/");
+        tokentemp = strtok(token,"/\n ");
         if(tokentemp != NULL){
             token = tokentemp;
-            token = strtok(token,"/");
+            token = strtok(token,"/\n ");
         }
         string url = std::string(token);
         insert_str url_str = {url,1};
